@@ -15,5 +15,7 @@
 
         /// <summary>Имя файла, к которому должно быть применено действие</summary>
         public string TargetFileName { get; private set; }
+
+        public override string ToString() { return string.Format("Calling {0} -> {1}", ActionName, TargetFileName); }
     }
 }

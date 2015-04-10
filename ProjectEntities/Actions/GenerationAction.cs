@@ -16,5 +16,7 @@ namespace QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions
 
         /// <summary>Сипсок инъекций для этого действия</summary>
         public ICollection<InjectionTemplate> Injections { get; private set; }
+
+        public override string ToString() { return string.Format("Action \"{0}\"", Name); }
     }
 }

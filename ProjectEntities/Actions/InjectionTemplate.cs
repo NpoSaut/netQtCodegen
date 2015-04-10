@@ -15,5 +15,7 @@
 
         /// <summary>Шаблон инжекции</summary>
         public string Template { get; private set; }
+
+        public override string ToString() { return string.Format("Injection for \"{0}\"", Anchor); }
     }
 }
