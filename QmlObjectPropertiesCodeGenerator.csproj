@@ -48,6 +48,12 @@
     <Compile Include="CodeLocation.cs" />
     <Compile Include="CodeReplacement.cs" />
     <Compile Include="Formatting\IndentHelper.cs" />
+    <Compile Include="Injection\IInjectionsManager.cs" />
+    <Compile Include="Injection\ProcessingStates\ILineProcessingState.cs" />
+    <Compile Include="Injection\InjectionsManager.cs" />
+    <Compile Include="Injection\ProcessingStates\LineProcessingStateBase.cs" />
+    <Compile Include="Injection\ProcessingStates\ReadyForInjectionLineProcessingState.cs" />
+    <Compile Include="Injection\ProcessingStates\WaitForAnchorEndLineProcessingState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectEntities\Actions\GenerationAction.cs" />
     <Compile Include="ProjectEntities\GenerationProject.cs" />
