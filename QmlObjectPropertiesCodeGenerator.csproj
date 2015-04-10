@@ -54,6 +54,12 @@
     <Compile Include="Injection\ProcessingStates\LineProcessingStateBase.cs" />
     <Compile Include="Injection\ProcessingStates\ReadyForInjectionLineProcessingState.cs" />
     <Compile Include="Injection\ProcessingStates\WaitForAnchorEndLineProcessingState.cs" />
+    <Compile Include="Processing\IActionsManager.cs" />
+    <Compile Include="Processing\IProjectProcessor.cs" />
+    <Compile Include="Processing\ITemplateProcessor.cs" />
+    <Compile Include="Processing\ProjectActionsManager.cs" />
+    <Compile Include="Processing\ProjectProcessor.cs" />
+    <Compile Include="Processing\TemplateProcessor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectEntities\Actions\GenerationAction.cs" />
     <Compile Include="ProjectEntities\GenerationProject.cs" />

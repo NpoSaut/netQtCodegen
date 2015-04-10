@@ -12,6 +12,12 @@ namespace QmlObjectPropertiesCodeGenerator
     {
         private static void Main(string[] args)
         {
+            var loader = new XmlProjectLoader(@"C:\Users\plyusnin\Qt\QtTrol\generation-task.xml");
+            var proj = loader.Load();
+
+
+
+
             string workingDirectory = (args.Length > 0) ? args[0] : "";
             string sourcePaths = workingDirectory;
             string viewModelsPath = Path.Combine(workingDirectory, "viewmodels");
