@@ -38,7 +38,7 @@ namespace QmlObjectPropertiesCodeGenerator.ProjectLoaders
                         .Select(XAction =>
                                 new GenerationAction(XAction.Name.LocalName,
                                                      XAction.Elements("InjectionTemplate")
-                                                            .Select(XTemplate => new InjectionTemplate(XTemplate.Name.LocalName, XTemplate.Value))
+                                                            .Select(XTemplate => new InjectionTemplate((string)XTemplate.Attribute("anchor"), XTemplate.Value))
                                                             .ToList()))
                         .ToList()
                 );
