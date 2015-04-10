@@ -47,6 +47,7 @@
     <Compile Include="CamelHelper.cs" />
     <Compile Include="CodeLocation.cs" />
     <Compile Include="CodeReplacement.cs" />
+    <Compile Include="Formatting\IndentHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProjectEntities\Actions\GenerationAction.cs" />
     <Compile Include="ProjectEntities\GenerationProject.cs" />
@@ -75,6 +76,7 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

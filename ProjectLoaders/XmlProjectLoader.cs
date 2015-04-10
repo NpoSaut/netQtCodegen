@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
+using QmlObjectPropertiesCodeGenerator.Formatting;
 using QmlObjectPropertiesCodeGenerator.ProjectEntities;
 using QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions;
 using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
@@ -38,7 +39,8 @@ namespace QmlObjectPropertiesCodeGenerator.ProjectLoaders
                         .Select(XAction =>
                                 new GenerationAction(XAction.Name.LocalName,
                                                      XAction.Elements("InjectionTemplate")
-                                                            .Select(XTemplate => new InjectionTemplate((string)XTemplate.Attribute("anchor"), XTemplate.Value))
+                                                            .Select(XTemplate => new InjectionTemplate((string)XTemplate.Attribute("anchor"),
+                                                                                                       XTemplate.Value.Trim('\n').TrimIndents()))
                                                             .ToList()))
                         .ToList()
                 );
