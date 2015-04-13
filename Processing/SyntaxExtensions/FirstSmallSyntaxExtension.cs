@@ -8,6 +8,6 @@ namespace QmlObjectPropertiesCodeGenerator.Processing.SyntaxExtensions
         /// <summary>Применяет расширение к указанной строке</summary>
         /// <param name="str">Исходная строка</param>
         /// <returns>Модифицированная строка</returns>
-        public string Apply(string str) { return str.ToFirstUpper(); }
+        public string Apply(string str) { return str.ToFirstLower(); }
     }
 }
