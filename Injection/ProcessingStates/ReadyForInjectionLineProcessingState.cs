@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using QmlObjectPropertiesCodeGenerator.Formatting;
 
 namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
 {
@@ -20,7 +21,7 @@ namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
             if (!_startAnchors.ContainsKey(anchor)) return this;
 
             foreach (string injection in Anchors[_startAnchors[anchor]])
-                StringBuilder.AppendLine(injection);
+                StringBuilder.AppendLine(injection.Indent(line.MeasureIndent()));
 
             return new WaitForAnchorEndLineProcessingState(StringBuilder, Anchors, string.Format(_startAnchors[anchor], "end"));
         }

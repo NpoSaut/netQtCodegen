@@ -21,5 +21,16 @@ namespace QmlObjectPropertiesCodeGenerator.Formatting
             string res = string.Join("\n", lines.Select(line => line.Substring(indent)));
             return res;
         }
+
+        /// <summary>Отступает каждую строку на указанное количество пробелов</summary>
+        /// <param name="str">Несколько строк, которые нужно отступить</param>
+        /// <param name="indent">Количество пробельных символов, на которые нужно отступить</param>
+        /// <returns>Те же самые строки с указанным отступом</returns>
+        public static string Indent(this string str, int indent)
+        {
+            var indention = new string(' ', indent);
+            string[] lines = str.Split('\n');
+            return string.Join("\n", lines.Select(line => indention + line));
+        }
     }
 }
