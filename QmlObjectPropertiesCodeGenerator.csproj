@@ -54,8 +54,16 @@
     <Compile Include="Injection\ProcessingStates\LineProcessingStateBase.cs" />
     <Compile Include="Injection\ProcessingStates\ReadyForInjectionLineProcessingState.cs" />
     <Compile Include="Injection\ProcessingStates\WaitForAnchorEndLineProcessingState.cs" />
+    <Compile Include="Processing\ExtensionManagerHelper.cs" />
+    <Compile Include="Processing\ExtensionNotFoundException.cs" />
     <Compile Include="Processing\IActionsManager.cs" />
+    <Compile Include="Processing\IExtensionsManager.cs" />
     <Compile Include="Processing\IProjectProcessor.cs" />
+    <Compile Include="Processing\ReflectingExtensionsManager.cs" />
+    <Compile Include="Processing\SyntaxExtensions\ExtensionKeyAttribute.cs" />
+    <Compile Include="Processing\SyntaxExtensions\FirstCapsSyntaxExtension.cs" />
+    <Compile Include="Processing\SyntaxExtensions\FirstSmallSyntaxExtension.cs" />
+    <Compile Include="Processing\SyntaxExtensions\ISyntaxExtension.cs" />
     <Compile Include="Processing\ITemplateProcessor.cs" />
     <Compile Include="Processing\ProjectActionsManager.cs" />
     <Compile Include="Processing\ProjectProcessor.cs" />

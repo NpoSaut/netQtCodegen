@@ -7,7 +7,13 @@ namespace QmlObjectPropertiesCodeGenerator.Processing
     public class TemplateProcessor : ITemplateProcessor
     {
         private IDictionary<string, string> _globalProperties;
-        public TemplateProcessor(IDictionary<string, string> GlobalProperties) { _globalProperties = GlobalProperties; }
+        private IExtensionsManager _extensions;
+
+        public TemplateProcessor(IDictionary<string, string> GlobalProperties, IExtensionsManager Extensions)
+        {
+            _globalProperties = GlobalProperties;
+            _extensions = Extensions;
+        }
 
         /// <summary>Обрабатывает шаблон и строит блок кода на его основе</summary>
         /// <param name="Template">Шаблон генерируемого кода</param>
