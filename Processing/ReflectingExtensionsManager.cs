@@ -15,7 +15,7 @@ namespace QmlObjectPropertiesCodeGenerator.Processing
         {
             _extensions =
                 Assembly.GetAssembly(typeof (ISyntaxExtension)).GetTypes()
-                        .Where(t => t.IsAssignableFrom(typeof (ISyntaxExtension)))
+                        .Where(t => typeof(ISyntaxExtension).IsAssignableFrom(t))
                         .SelectMany(t => t.GetCustomAttributes<ExtensionKeyAttribute>().Select(a => new { key = a.Key, type = t }))
                         .ToDictionary(x => x.key, x => (ISyntaxExtension)Activator.CreateInstance(x.type));
         }

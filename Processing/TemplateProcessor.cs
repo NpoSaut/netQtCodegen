@@ -6,13 +6,13 @@ namespace QmlObjectPropertiesCodeGenerator.Processing
 {
     public class TemplateProcessor : ITemplateProcessor
     {
-        private IDictionary<string, string> _globalProperties;
-        private IExtensionsManager _extensions;
+        private readonly IExtensionsManager _extensions;
+        private readonly IPropertiesResolver _propertiesResolver;
 
-        public TemplateProcessor(IDictionary<string, string> GlobalProperties, IExtensionsManager Extensions)
+        public TemplateProcessor(IPropertiesResolver PropertiesResolver, IExtensionsManager Extensions)
         {
-            _globalProperties = GlobalProperties;
             _extensions = Extensions;
+            _propertiesResolver = PropertiesResolver;
         }
 
         /// <summary>Обрабатывает шаблон и строит блок кода на его основе</summary>
@@ -20,16 +20,19 @@ namespace QmlObjectPropertiesCodeGenerator.Processing
         /// <param name="Properties">Словарь свойств для генерации кода</param>
         public string ProcessTemplate(string Template, IDictionary<string, string> Properties)
         {
-            Regex regex = new Regex(@"\{(?<name>\w+)(:((?<extension>[\w-]+)\s?)+)?\}");
-            var matches = regex.Matches(Template);
+            var regex = new Regex(@"\{(?<namespace>[#]?)(?<name>\w+)(:((?<extension>[\w-]+)\s?)+)?\}");
+            return regex.Replace(Template, m => Evaluator(m, Properties));
+        }
 
-            foreach (var match in matches.OfType<Match>())
-            {
-                var name = match.Groups["name"].Value;
-                var extensions = match.Groups["extension"].Captures.OfType<Capture>().Select(c => c.Value).ToList();
-            }
+        private string Evaluator(Match match, IDictionary<string, string> Properties)
+        {
+            string propertyNamespace = match.Groups["namespace"].Value;
+            string propertyName = match.Groups["name"].Value;
+            List<string> extensions = match.Groups["extension"].Captures.OfType<Capture>().Select(c => c.Value).ToList();
+            string propertyRawValue = _propertiesResolver.ResolvePropertyValue(propertyName, propertyNamespace, Properties);
+            string propertyValue = _extensions.ApplyAll(propertyRawValue, extensions);
 
-            return null;
+            return propertyValue;
         }
     }
 }
