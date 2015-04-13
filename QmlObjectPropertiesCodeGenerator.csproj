@@ -59,6 +59,8 @@
     <Compile Include="Processing\IActionsManager.cs" />
     <Compile Include="Processing\IExtensionsManager.cs" />
     <Compile Include="Processing\IProjectProcessor.cs" />
+    <Compile Include="Processing\IPropertiesResolver.cs" />
+    <Compile Include="Processing\PropertiesResolver.cs" />
     <Compile Include="Processing\ReflectingExtensionsManager.cs" />
     <Compile Include="Processing\SyntaxExtensions\ExtensionKeyAttribute.cs" />
     <Compile Include="Processing\SyntaxExtensions\FirstCapsSyntaxExtension.cs" />

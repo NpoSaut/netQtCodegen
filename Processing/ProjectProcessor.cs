@@ -1,4 +1,5 @@
-﻿using QmlObjectPropertiesCodeGenerator.ProjectEntities;
+﻿using QmlObjectPropertiesCodeGenerator.Injection;
+using QmlObjectPropertiesCodeGenerator.ProjectEntities;
 using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
 
 namespace QmlObjectPropertiesCodeGenerator.Processing
@@ -9,12 +10,20 @@ namespace QmlObjectPropertiesCodeGenerator.Processing
         /// <param name="Project">Проект для обработки</param>
         public void Process(GenerationProject Project)
         {
-            IActionsManager actionsManager = new ProjectActionsManager(Project.Actions);
+            var injectionsManager = new InjectionsManager();
+            var extensionsManager = new ReflectingExtensionsManager();
+
             foreach (GenerationTask task in Project.Tasks)
             {
+                IActionsManager actionsManager = new ProjectActionsManager(Project.Actions, injectionsManager,
+                                                                           new TemplateProcessor(new PropertiesResolver(task.Globals),
+                                                                                                 extensionsManager));
+
                 foreach (GenerationActionCalling actionCalling in task.CallingActions)
                     actionsManager.ExecuteAction(actionCalling.ActionName, actionCalling.TargetFileName, task.Items);
             }
+
+            injectionsManager.Apply();
         }
     }
 }
