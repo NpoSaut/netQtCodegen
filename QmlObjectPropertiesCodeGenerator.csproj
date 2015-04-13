@@ -45,8 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CamelHelper.cs" />
-    <Compile Include="CodeLocation.cs" />
-    <Compile Include="CodeReplacement.cs" />
     <Compile Include="Formatting\IndentHelper.cs" />
     <Compile Include="Injection\IInjectionsManager.cs" />
     <Compile Include="Injection\ProcessingStates\ILineProcessingState.cs" />
@@ -85,7 +83,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SourceFile.cs" />
     <Compile Include="TypeConverter.cs" />
   </ItemGroup>
   <ItemGroup>
