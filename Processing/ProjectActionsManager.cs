@@ -30,7 +30,7 @@ namespace Codegen.Processing
             {
                 foreach (GenerationItem item in Items)
                 {
-                    string code = _templateProcessor.ProcessTemplate(injection.Template, item.Properties);
+                    string code = _templateProcessor.ProcessInjectionTemplate(item, injection.Template, injection.InternalTemplates);
                     _injectionsManager.Inject(FileName, injection.Anchor, code);
                 }
             }

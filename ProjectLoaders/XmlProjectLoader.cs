@@ -40,10 +40,10 @@ namespace Codegen.ProjectLoaders
                                                      XAction.Elements("InjectionTemplate")
                                                             .Select(XTemplate =>
                                                                     new InjectionTemplate((string)XTemplate.Attribute("anchor"),
-                                                                                          XTemplate.Value.TrimEnd().Trim('\n').TrimIndents(),
+                                                                                          XTemplate.Nodes().OfType<XText>().First().Value.TrimEnd().Trim('\n').TrimIndents(),
                                                                                           XTemplate.Elements("Template").ToDictionary(
                                                                                               XInternalTemplate => XInternalTemplate.Attribute("name").Value,
-                                                                                              XInternalTemplate => XInternalTemplate.Value)))
+                                                                                              XInternalTemplate => XInternalTemplate.Value.TrimEnd().Trim('\n').TrimIndents())))
                                                             .ToList()))
                         .ToList()
                 );
