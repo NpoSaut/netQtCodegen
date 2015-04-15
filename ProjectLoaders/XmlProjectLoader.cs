@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using Codegen.Formatting;
@@ -31,9 +32,7 @@ namespace Codegen.ProjectLoaders
                                     XGenerationTask.Element("Actions").Elements()
                                                    .Select(XAction => new GenerationActionCalling(XAction.Name.LocalName, (string)XAction.Attribute("file")))
                                                    .ToList(),
-                                    XGenerationTask.Elements("SourceItems").Elements()
-                                                   .Select(XItem => new GenerationItem(XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value)))
-                                                   .ToList()))
+                                    LoadItems(XGenerationTask.Element("SourceItems"))))
                         .ToList(),
                 document.Root.Element("GenerationActions").Elements()
                         .Select(XAction =>
@@ -45,6 +44,15 @@ namespace Codegen.ProjectLoaders
                         .ToList()
                 );
             // ReSharper restore PossibleNullReferenceException
+        }
+
+        private static List<GenerationItem> LoadItems(XElement XItemsContainer)
+        {
+            return XItemsContainer.Elements()
+                                  .Select(XItem =>
+                                      new GenerationItem(XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value),
+                                          LoadItems(XItem)))
+                                  .ToList();
         }
     }
 }
