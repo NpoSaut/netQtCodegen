@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     public class PropertiesResolver : IPropertiesResolver
     {

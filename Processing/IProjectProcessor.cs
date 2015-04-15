@@ -1,6 +1,6 @@
-﻿using QmlObjectPropertiesCodeGenerator.ProjectEntities;
+﻿using Codegen.ProjectEntities;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Обработчик проекта</summary>
     public interface IProjectProcessor

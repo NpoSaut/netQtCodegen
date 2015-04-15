@@ -1,4 +1,4 @@
-namespace QmlObjectPropertiesCodeGenerator.Processing.SyntaxExtensions
+namespace Codegen.Processing.SyntaxExtensions
 {
     /// <summary>Делает первую букву строки строчной</summary>
     [ExtensionKey("first-small")]

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using QmlObjectPropertiesCodeGenerator.Injection;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
+using Codegen.Injection;
+using Codegen.ProjectEntities.Actions;
+using Codegen.ProjectEntities.Tasking;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     public class ProjectActionsManager : IActionsManager
     {

@@ -1,6 +1,6 @@
-﻿using QmlObjectPropertiesCodeGenerator.Processing.SyntaxExtensions;
+﻿using Codegen.Processing.SyntaxExtensions;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Менеджер расширений разметки</summary>
     public interface IExtensionsManager

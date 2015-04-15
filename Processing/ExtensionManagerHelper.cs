@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Класс утилит для более удобного использования менеджера расширений</summary>
     public static class ExtensionManagerHelper

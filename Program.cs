@@ -1,8 +1,8 @@
-﻿using QmlObjectPropertiesCodeGenerator.Processing;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities;
-using QmlObjectPropertiesCodeGenerator.ProjectLoaders;
+﻿using Codegen.Processing;
+using Codegen.ProjectEntities;
+using Codegen.ProjectLoaders;
 
-namespace QmlObjectPropertiesCodeGenerator
+namespace Codegen
 {
     internal class Program
     {

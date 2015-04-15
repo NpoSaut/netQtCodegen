@@ -1,6 +1,6 @@
-﻿using QmlObjectPropertiesCodeGenerator.ProjectEntities;
+﻿using Codegen.ProjectEntities;
 
-namespace QmlObjectPropertiesCodeGenerator.ProjectLoaders
+namespace Codegen.ProjectLoaders
 {
     /// <summary>Загрузчик проекта</summary>
     public interface IProjectLoader

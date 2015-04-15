@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
+namespace Codegen.Injection.ProcessingStates
 {
     /// <summary>Состояние ожидания конца текущего якоря</summary>
     internal class WaitForAnchorEndLineProcessingState : LineProcessingStateBase

@@ -1,4 +1,4 @@
-﻿namespace QmlObjectPropertiesCodeGenerator.Injection
+﻿namespace Codegen.Injection
 {
     /// <summary>Менеджер фрагментов кода</summary>
     public interface IInjectionsManager

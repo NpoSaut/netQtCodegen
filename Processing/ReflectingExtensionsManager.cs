@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using QmlObjectPropertiesCodeGenerator.Processing.SyntaxExtensions;
+using Codegen.Processing.SyntaxExtensions;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Менеджер расширений, который ищет расширения в текущей сборке при помощи рефлексии</summary>
     public class ReflectingExtensionsManager : IExtensionsManager

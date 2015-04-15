@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
+using Codegen.ProjectEntities.Tasking;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Менеджер действий по кодогенерации</summary>
     public interface IActionsManager

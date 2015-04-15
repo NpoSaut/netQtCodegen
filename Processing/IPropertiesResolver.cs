@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Инструмент, разрешающий значения свойства по его имени</summary>
     public interface IPropertiesResolver

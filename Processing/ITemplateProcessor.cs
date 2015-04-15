@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <summary>Обработчик шаблонов кодогенерации</summary>
     public interface ITemplateProcessor

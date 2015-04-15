@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using QmlObjectPropertiesCodeGenerator.Formatting;
+using Codegen.Formatting;
 
-namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
+namespace Codegen.Injection.ProcessingStates
 {
     /// <summary>—осто€ние трансл€ции строк и ожидани€ нового €кор€</summary>
     internal class ReadyForInjectionLineProcessingState : LineProcessingStateBase

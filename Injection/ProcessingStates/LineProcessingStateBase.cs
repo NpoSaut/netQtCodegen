@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
+namespace Codegen.Injection.ProcessingStates
 {
     /// <summary>Базовый класс для состояния обработки строк</summary>
     internal abstract class LineProcessingStateBase : ILineProcessingState

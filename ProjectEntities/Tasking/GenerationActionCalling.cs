@@ -1,4 +1,4 @@
-﻿namespace QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking
+﻿namespace Codegen.ProjectEntities.Tasking
 {
     /// <summary>Вызов действия кодогенерации</summary>
     public class GenerationActionCalling

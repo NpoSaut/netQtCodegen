@@ -8,8 +8,8 @@
     <ProjectGuid>{875AD1A9-DC2F-4B5D-9D5F-08F520E7B20D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QmlObjectPropertiesCodeGenerator</RootNamespace>
-    <AssemblyName>QmlObjectPropertiesCodeGenerator</AssemblyName>
+    <RootNamespace>Codegen</RootNamespace>
+    <AssemblyName>Codegen</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking
+namespace Codegen.ProjectEntities.Tasking
 {
     /// <summary>Задача по генерации</summary>
     public class GenerationTask

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking
+namespace Codegen.ProjectEntities.Tasking
 {
     /// <summary>Элемент генерации</summary>
     public class GenerationItem

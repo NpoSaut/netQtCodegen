@@ -1,4 +1,4 @@
-﻿namespace QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions
+﻿namespace Codegen.ProjectEntities.Actions
 {
     /// <summary>Шаблон вставки</summary>
     /// <remarks>Шаблон того, что будет вставляться в файл в некотором действии по кодогенерации</remarks>

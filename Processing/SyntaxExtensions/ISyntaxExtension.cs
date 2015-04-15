@@ -1,4 +1,4 @@
-﻿namespace QmlObjectPropertiesCodeGenerator.Processing.SyntaxExtensions
+﻿namespace Codegen.Processing.SyntaxExtensions
 {
     /// <summary>Расширение разметки</summary>
     public interface ISyntaxExtension

@@ -1,8 +1,8 @@
-﻿using QmlObjectPropertiesCodeGenerator.Injection;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
+﻿using Codegen.Injection;
+using Codegen.ProjectEntities;
+using Codegen.ProjectEntities.Tasking;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     public class ProjectProcessor : IProjectProcessor
     {

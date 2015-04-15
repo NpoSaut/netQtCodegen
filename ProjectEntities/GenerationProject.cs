@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
+using Codegen.ProjectEntities.Actions;
+using Codegen.ProjectEntities.Tasking;
 
-namespace QmlObjectPropertiesCodeGenerator.ProjectEntities
+namespace Codegen.ProjectEntities
 {
     /// <summary>Проект кодогенерации</summary>
     /// <remarks>Основной класс, согласно которому будет произведена работа по кодогенерации</remarks>

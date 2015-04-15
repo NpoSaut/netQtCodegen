@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing.SyntaxExtensions
+namespace Codegen.Processing.SyntaxExtensions
 {
     /// <summary>Атрибут ключа расширения синтаксиса</summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]

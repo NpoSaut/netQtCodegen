@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace QmlObjectPropertiesCodeGenerator.Processing
+namespace Codegen.Processing
 {
     /// <Summary>Расширение с указанным названием не найдено в менеджере расширений</Summary>
     [Serializable]

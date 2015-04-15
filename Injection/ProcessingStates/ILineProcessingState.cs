@@ -1,4 +1,4 @@
-﻿namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
+﻿namespace Codegen.Injection.ProcessingStates
 {
     internal interface ILineProcessingState
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace QmlObjectPropertiesCodeGenerator.Formatting
+namespace Codegen.Formatting
 {
     /// <summary>Утилиты для работы с отступами</summary>
     public static class IndentHelper

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QmlObjectPropertiesCodeGenerator
+namespace Codegen
 {
     public interface ITypeConverter
     {

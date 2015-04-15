@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text;
-using QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates;
+using Codegen.Injection.ProcessingStates;
 
-namespace QmlObjectPropertiesCodeGenerator.Injection
+namespace Codegen.Injection
 {
     public class InjectionsManager : IInjectionsManager
     {

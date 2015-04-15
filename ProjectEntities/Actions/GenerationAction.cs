@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions
+namespace Codegen.ProjectEntities.Actions
 {
     /// <summary>Действие кодогенерации</summary>
     public class GenerationAction

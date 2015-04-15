@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Linq;
-using QmlObjectPropertiesCodeGenerator.Formatting;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Actions;
-using QmlObjectPropertiesCodeGenerator.ProjectEntities.Tasking;
+using Codegen.Formatting;
+using Codegen.ProjectEntities;
+using Codegen.ProjectEntities.Actions;
+using Codegen.ProjectEntities.Tasking;
 
-namespace QmlObjectPropertiesCodeGenerator.ProjectLoaders
+namespace Codegen.ProjectLoaders
 {
     public class XmlProjectLoader : IProjectLoader
     {
