@@ -38,8 +38,12 @@ namespace Codegen.ProjectLoaders
                         .Select(XAction =>
                                 new GenerationAction(XAction.Name.LocalName,
                                                      XAction.Elements("InjectionTemplate")
-                                                            .Select(XTemplate => new InjectionTemplate((string)XTemplate.Attribute("anchor"),
-                                                                                                       XTemplate.Value.TrimEnd().Trim('\n').TrimIndents()))
+                                                            .Select(XTemplate =>
+                                                                    new InjectionTemplate((string)XTemplate.Attribute("anchor"),
+                                                                                          XTemplate.Value.TrimEnd().Trim('\n').TrimIndents(),
+                                                                                          XTemplate.Elements("Template").ToDictionary(
+                                                                                              XInternalTemplate => XInternalTemplate.Attribute("name").Value,
+                                                                                              XInternalTemplate => XInternalTemplate.Value)))
                                                             .ToList()))
                         .ToList()
                 );
@@ -50,8 +54,8 @@ namespace Codegen.ProjectLoaders
         {
             return XItemsContainer.Elements()
                                   .Select(XItem =>
-                                      new GenerationItem(XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value),
-                                          LoadItems(XItem)))
+                                          new GenerationItem(XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value),
+                                                             LoadItems(XItem)))
                                   .ToList();
         }
     }
