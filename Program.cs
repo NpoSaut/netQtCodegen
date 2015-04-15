@@ -1,4 +1,6 @@
-﻿using Codegen.Processing;
+﻿using System;
+using System.Linq;
+using Codegen.Processing;
 using Codegen.ProjectEntities;
 using Codegen.ProjectLoaders;
 
@@ -8,11 +10,41 @@ namespace Codegen
     {
         private static void Main(string[] args)
         {
-            var loader = new XmlProjectLoader(@"C:\Users\plyusnin\Qt\QtTrol\generation-task.xml");
-            GenerationProject proj = loader.Load();
+            string projectFileName;
+            if (args.Length == 1)
+                projectFileName = args[0];
+            else
+            {
+                Console.WriteLine("Задайте имя файла проекта в параметрах запуска, или введите сейчас:");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                projectFileName = Console.ReadLine();
+                Console.ResetColor();
+                if (string.IsNullOrWhiteSpace(projectFileName))
+                    return;
+            }
 
-            IProjectProcessor projectProcessor = new ProjectProcessor();
-            projectProcessor.Process(proj);
+            try
+            {
+                var loader = new XmlProjectLoader(projectFileName);
+                GenerationProject project = loader.Load();
+
+                IProjectProcessor projectProcessor = new ProjectProcessor();
+                projectProcessor.Process(project);
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Проект успешно обработан.");
+                Console.ResetColor();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Во время выполнения программы возникло исключение:");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(e.Message);
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine(e);
+                Console.ResetColor();
+                Console.ReadLine();
+            }
         }
     }
 }
