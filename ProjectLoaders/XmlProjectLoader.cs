@@ -40,7 +40,7 @@ namespace QmlObjectPropertiesCodeGenerator.ProjectLoaders
                                 new GenerationAction(XAction.Name.LocalName,
                                                      XAction.Elements("InjectionTemplate")
                                                             .Select(XTemplate => new InjectionTemplate((string)XTemplate.Attribute("anchor"),
-                                                                                                       XTemplate.Value.Trim('\n').TrimIndents()))
+                                                                                                       XTemplate.Value.TrimEnd().Trim('\n').TrimIndents()))
                                                             .ToList()))
                         .ToList()
                 );

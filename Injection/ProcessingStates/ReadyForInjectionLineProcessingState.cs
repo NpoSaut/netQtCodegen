@@ -20,10 +20,18 @@ namespace QmlObjectPropertiesCodeGenerator.Injection.ProcessingStates
 
             if (!_startAnchors.ContainsKey(anchor)) return this;
 
+            int anchorIndent = line.MeasureIndent();
             foreach (string injection in Anchors[_startAnchors[anchor]])
-                StringBuilder.AppendLine(injection.Indent(line.MeasureIndent()));
+                StringBuilder.AppendLine(IndentLines(injection.Indent(anchorIndent)));
 
             return new WaitForAnchorEndLineProcessingState(StringBuilder, Anchors, string.Format(_startAnchors[anchor], "end"));
+        }
+
+        private string IndentLines(string Text)
+        {
+            return Text.Contains('\n')
+                       ? Text + '\n'
+                       : Text;
         }
     }
 }
