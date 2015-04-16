@@ -66,6 +66,7 @@
     <Compile Include="Processing\Resolvers\PropertiesResolver.cs" />
     <Compile Include="Processing\ReflectingExtensionsManager.cs" />
     <Compile Include="Processing\Resolvers\PropertiesResolverFactory.cs" />
+    <Compile Include="Processing\SyntaxExtensions\AllCapsSyntaxExtension.cs" />
     <Compile Include="Processing\SyntaxExtensions\ExtensionKeyAttribute.cs" />
     <Compile Include="Processing\SyntaxExtensions\FirstCapsSyntaxExtension.cs" />
     <Compile Include="Processing\SyntaxExtensions\FirstSmallSyntaxExtension.cs" />

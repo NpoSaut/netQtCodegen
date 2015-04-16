@@ -28,6 +28,9 @@ namespace Codegen.Injection
         {
             foreach (var fileInjections in _injections)
             {
+                if (!File.Exists(fileInjections.Key))
+                    throw new FileNotFoundException("Не найден файл для инжектирования", fileInjections.Key);
+
                 var stringBuilder = new StringBuilder();
                 using (var sr = new StreamReader(fileInjections.Key))
                 {
