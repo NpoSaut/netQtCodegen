@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using Codegen.ProjectEntities.Actions;
-using Codegen.ProjectEntities.Tasking;
 
 namespace Codegen.Processing.Resolvers
 {
@@ -12,14 +10,11 @@ namespace Codegen.Processing.Resolvers
 
         /// <summary>Вычисляет значение свойства по его имени</summary>
         /// <param name="PropertyName">Имя свойства</param>
-        /// <param name="PropertyNamespace">Пространство имён свойства (задаётся каким-нибудь символом вроде '#')</param>
-        /// <param name="Item">Словарь локальных свойств</param>
-        /// <param name="InjectionTemplate">Шаблон генерируемого кода</param>
-        /// <param name="InternalTemplates">Шаблоны для генерации внутренних элементов</param>
-        public string ResolvePropertyValue(string PropertyName, string PropertyNamespace, GenerationItem Item,
-                                           string InjectionTemplate, IDictionary<string, string> InternalTemplates)
+        /// <param name="PropertyNamespace">Пространство имён свойства (задаётся перед символом)</param>
+        /// <param name="Arguments">Аргументы кодогенерации</param>
+        public string ResolvePropertyValue(string PropertyName, string PropertyNamespace, GenerationArguments Arguments)
         {
-            return _resolvingMethods[PropertyNamespace].Resolve(PropertyName, Item, InjectionTemplate, InternalTemplates);
+            return _resolvingMethods[PropertyNamespace].Resolve(PropertyName, Arguments);
         }
     }
 }

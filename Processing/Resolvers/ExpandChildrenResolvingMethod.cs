@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Codegen.ProjectEntities.Tasking;
 
@@ -10,12 +9,20 @@ namespace Codegen.Processing.Resolvers
         private readonly ITemplateProcessor _templateProcessor;
         public ExpandChildrenResolvingMethod(ITemplateProcessor TemplateProcessor) { _templateProcessor = TemplateProcessor; }
 
-        public string Resolve(string PropertyName, GenerationItem Item, string InjectionTemplate, IDictionary<string, string> InternalTemplates)
+        /// <summary>Разрешает значение свойства по его имени</summary>
+        /// <param name="PropertyName">Название свойства</param>
+        /// <param name="Arguments">Аргументы кодогенерации</param>
+        public string Resolve(string PropertyName, GenerationArguments Arguments)
         {
             return
                 string.Join(Environment.NewLine,
-                            Item.Children.Select(
-                                subItem => _templateProcessor.ProcessInjectionTemplate(subItem, InternalTemplates[PropertyName], InternalTemplates)));
+                            Arguments.Item.Children.Select(
+                                subItem => _templateProcessor.ProcessInjectionTemplate(GetSubarguments(Arguments, subItem, PropertyName))));
+        }
+
+        private GenerationArguments GetSubarguments(GenerationArguments Arguments, GenerationItem SubItem, string TemplateName)
+        {
+            return new GenerationArguments(SubItem, Arguments.TemplatesDictionary[TemplateName], Arguments.TemplatesDictionary);
         }
     }
 }

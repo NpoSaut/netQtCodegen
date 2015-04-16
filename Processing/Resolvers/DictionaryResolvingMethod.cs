@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Codegen.ProjectEntities.Tasking;
 
 namespace Codegen.Processing.Resolvers
 {
@@ -9,9 +8,9 @@ namespace Codegen.Processing.Resolvers
         private readonly IDictionary<string, string> _dictionary;
         public DictionaryResolvingMethod(IDictionary<string, string> Dictionary) { _dictionary = Dictionary; }
 
-        public string Resolve(string PropertyName, GenerationItem Item, string InjectionTemplate, IDictionary<string, string> InternalTemplates)
-        {
-            return _dictionary[PropertyName];
-        }
+        /// <summary>Разрешает значение свойства по его имени</summary>
+        /// <param name="PropertyName">Название свойства</param>
+        /// <param name="Arguments">Аргументы кодогенерации</param>
+        public string Resolve(string PropertyName, GenerationArguments Arguments) { return _dictionary[PropertyName]; }
     }
 }
