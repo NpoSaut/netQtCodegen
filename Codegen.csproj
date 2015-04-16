@@ -64,6 +64,7 @@
     <Compile Include="Processing\Resolvers\IPropertiesResolver.cs" />
     <Compile Include="Processing\Resolvers\IPropertiesResolverFactory.cs" />
     <Compile Include="Processing\Resolvers\IResolvingMethod.cs" />
+    <Compile Include="Processing\Resolvers\ParentPropertyResolvingMethod.cs" />
     <Compile Include="Processing\Resolvers\PropertiesResolver.cs" />
     <Compile Include="Processing\ReflectingExtensionsManager.cs" />
     <Compile Include="Processing\Resolvers\PropertiesResolverFactory.cs" />

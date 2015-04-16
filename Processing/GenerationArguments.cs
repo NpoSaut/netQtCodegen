@@ -10,12 +10,16 @@ namespace Codegen.Processing
         /// <param name="Item">Объект кодогенерации</param>
         /// <param name="Template">Шаблон кодогенерации</param>
         /// <param name="TemplatesDictionary">Дополнительные шаблоны кодогенерации</param>
-        public GenerationArguments(GenerationItem Item, string Template, IDictionary<string, string> TemplatesDictionary)
+        /// <param name="ParentItem">Родительский элемент</param>
+        public GenerationArguments(GenerationItem Item, string Template, IDictionary<string, string> TemplatesDictionary, GenerationItem ParentItem = null)
         {
+            this.ParentItem = ParentItem;
             this.Item = Item;
             this.Template = Template;
             this.TemplatesDictionary = TemplatesDictionary;
         }
+
+        public GenerationItem ParentItem { get; private set; }
 
         /// <summary>Объект кодогенерации</summary>
         /// <remarks>На основе этого объекта будет сгенерирован код</remarks>

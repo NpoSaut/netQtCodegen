@@ -13,7 +13,8 @@ namespace Codegen.Processing.Resolvers
                                           {
                                               { string.Empty, new InternalDictionaryResolvingMethod() },
                                               { "global", new DictionaryResolvingMethod(_globalProperties) },
-                                              { "expand", new ExpandChildrenResolvingMethod(TemplateProcessor) }
+                                              { "expand", new ExpandChildrenResolvingMethod(TemplateProcessor) },
+                                              { "parent", new ParentPropertyResolvingMethod() }
                                           });
         }
     }

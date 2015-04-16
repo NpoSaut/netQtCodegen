@@ -22,7 +22,7 @@ namespace Codegen.Processing.Resolvers
 
         private GenerationArguments GetSubarguments(GenerationArguments Arguments, GenerationItem SubItem, string TemplateName)
         {
-            return new GenerationArguments(SubItem, Arguments.TemplatesDictionary[TemplateName], Arguments.TemplatesDictionary);
+            return new GenerationArguments(SubItem, Arguments.TemplatesDictionary[TemplateName], Arguments.TemplatesDictionary, Arguments.Item);
         }
     }
 }
