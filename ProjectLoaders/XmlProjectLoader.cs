@@ -54,8 +54,7 @@ namespace Codegen.ProjectLoaders
         {
             return XItemsContainer.Elements()
                                   .Select(XItem =>
-                                          new GenerationItem(XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value),
-                                                             LoadItems(XItem)))
+                                          new GenerationItem(XItem.Name.LocalName, XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value), LoadItems(XItem)))
                                   .ToList();
         }
     }

@@ -23,8 +23,8 @@ namespace Codegen
                     return;
             }
 
-            try
-            {
+//            try
+//            {
                 var loader = new XmlProjectLoader(projectFileName);
                 GenerationProject project = loader.Load();
 
@@ -34,20 +34,20 @@ namespace Codegen
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Проект успешно обработан.");
                 Console.ResetColor();
-            }
-            catch (Exception e)
-            {
-                if (Debugger.IsAttached)
-                    throw;
-
-                Console.WriteLine("Во время выполнения программы возникло исключение:");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(e.Message);
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine(e);
-                Console.ResetColor();
-                Console.ReadLine();
-            }
+//            }
+//            catch (Exception e)
+//            {
+//                if (Debugger.IsAttached)
+//                    throw;
+//
+//                Console.WriteLine("Во время выполнения программы возникло исключение:");
+//                Console.ForegroundColor = ConsoleColor.Red;
+//                Console.WriteLine(e.Message);
+//                Console.ForegroundColor = ConsoleColor.DarkRed;
+//                Console.WriteLine(e);
+//                Console.ResetColor();
+//                Console.ReadLine();
+//            }
         }
     }
 }

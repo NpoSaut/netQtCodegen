@@ -22,21 +22,22 @@ namespace Codegen.Processing
         {
             int index;
 
-            var regex = new Regex(@"\{((?<namespace>\w*)\@)?(?<name>\w+)(:((?<extension>[\w-]+)\s?)+)?\}");
+            var regex = new Regex(@"\{((?<namespace>\w*)\@)?(?<name>\w+)(\(((?<parameter>[\w-]+)[,\s]*)*\))?(:((?<extension>[\w-]+)\s?)+)?\}");
             return regex.Replace(Arguments.Template,
                                  match =>
                                  {
                                      string propertyNamespace = match.Groups["namespace"].Value;
                                      string propertyName = match.Groups["name"].Value;
+                                     List<string> parameters = match.Groups["parameter"].Captures.OfType<Capture>().Select(c => c.Value).ToList();
                                      List<string> extensions = match.Groups["extension"].Captures.OfType<Capture>().Select(c => c.Value).ToList();
 
-                                     return EvaluteValue(propertyName, propertyNamespace, extensions, Arguments);
+                                     return EvaluteValue(propertyName, propertyNamespace, extensions, Arguments, parameters);
                                  });
         }
 
-        private string EvaluteValue(string PropertyName, string PropertyNamespace, IEnumerable<string> Extensions, GenerationArguments Arguments)
+        private string EvaluteValue(string PropertyName, string PropertyNamespace, IEnumerable<string> Extensions, GenerationArguments Arguments, IList<string> Parameters)
         {
-            string propertyRawValue = _propertiesResolver.ResolvePropertyValue(PropertyName, PropertyNamespace, Arguments);
+            string propertyRawValue = _propertiesResolver.ResolvePropertyValue(PropertyName, PropertyNamespace, Arguments, Parameters);
             string propertyValue = _extensions.ApplyAll(propertyRawValue, Extensions);
 
             return propertyValue;

@@ -12,9 +12,10 @@ namespace Codegen.Processing.Resolvers
         /// <param name="PropertyName">Имя свойства</param>
         /// <param name="PropertyNamespace">Пространство имён свойства (задаётся перед символом)</param>
         /// <param name="Arguments">Аргументы кодогенерации</param>
-        public string ResolvePropertyValue(string PropertyName, string PropertyNamespace, GenerationArguments Arguments)
+        /// <param name="Parameters"></param>
+        public string ResolvePropertyValue(string PropertyName, string PropertyNamespace, GenerationArguments Arguments, IList<string> Parameters)
         {
-            return _resolvingMethods[PropertyNamespace].Resolve(PropertyName, Arguments);
+            return _resolvingMethods[PropertyNamespace].Resolve(PropertyName, Arguments, Parameters);
         }
     }
 }
