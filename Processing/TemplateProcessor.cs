@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Codegen.Formatting;
 using Codegen.Processing.Resolvers;
 
 namespace Codegen.Processing
@@ -22,16 +23,18 @@ namespace Codegen.Processing
         {
             int index;
 
-            var regex = new Regex(@"\{((?<namespace>\w*)\@)?(?<name>\w+)(\(((?<parameter>[\w-]+)[,\s]*)*\))?(:((?<extension>[\w-]+)\s?)+)?\}");
+            var regex = new Regex(@"(?<indent>[ ]*)\{((?<namespace>\w*)\@)?(?<name>\w+)(\(((?<parameter>[\w-]+)[,\s]*)*\))?(:((?<extension>[\w-]+)\s?)+)?\}");
             return regex.Replace(Arguments.Template,
                                  match =>
                                  {
                                      string propertyNamespace = match.Groups["namespace"].Value;
                                      string propertyName = match.Groups["name"].Value;
+                                     int indentLength = match.Groups["indent"].Value.Length;
                                      List<string> parameters = match.Groups["parameter"].Captures.OfType<Capture>().Select(c => c.Value).ToList();
                                      List<string> extensions = match.Groups["extension"].Captures.OfType<Capture>().Select(c => c.Value).ToList();
 
-                                     return EvaluteValue(propertyName, propertyNamespace, extensions, Arguments, parameters);
+                                     var value = EvaluteValue(propertyName, propertyNamespace, extensions, Arguments, parameters);
+                                     return value.Indent(indentLength);
                                  });
         }
 
