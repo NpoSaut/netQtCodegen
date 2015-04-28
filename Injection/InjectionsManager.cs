@@ -18,6 +18,8 @@ namespace Codegen.Injection
         /// <param name="Injection">Фрагмент кода для вставки</param>
         public void Inject(string FileName, string Anchor, string Injection)
         {
+            if (string.IsNullOrWhiteSpace(Injection))
+                return;
             IDictionary<string, ICollection<string>> fileInjections = GetOrCreateFileInjections(FileName);
             ICollection<string> anchorInjections = GetOrCreateAnchorInjections(fileInjections, Anchor);
             anchorInjections.Add(Injection);
