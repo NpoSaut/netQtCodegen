@@ -43,7 +43,8 @@ namespace Codegen.ProjectLoaders
                                                                                           XTemplate.Nodes().OfType<XText>().First().Value.TrimEnd().Trim('\n').TrimIndents(),
                                                                                           XTemplate.Elements("Template").ToDictionary(
                                                                                               XInternalTemplate => XInternalTemplate.Attribute("name").Value,
-                                                                                              XInternalTemplate => XInternalTemplate.Value.TrimEnd().Trim('\n').TrimIndents())))
+                                                                                              XInternalTemplate => XInternalTemplate.Value.TrimEnd().Trim('\n').TrimIndents()),
+                                                                                          (string)XTemplate.Attribute("filter")))
                                                             .ToList()))
                         .ToList()
                 );

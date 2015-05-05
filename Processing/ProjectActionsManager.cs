@@ -28,7 +28,11 @@ namespace Codegen.Processing
             GenerationAction action = _actions[ActionName];
             foreach (InjectionTemplate injection in action.Injections)
             {
-                foreach (GenerationItem item in Items)
+                IEnumerable<GenerationItem> filteredItems = Items;
+                if (!string.IsNullOrWhiteSpace(injection.InjectionTargetFilter))
+                    filteredItems = Items.Where(item => item.Name == injection.InjectionTargetFilter);
+
+                foreach (GenerationItem item in filteredItems)
                 {
                     string code = _templateProcessor.ProcessInjectionTemplate(new GenerationArguments(item, injection.Template, injection.InternalTemplates));
                     _injectionsManager.Inject(FileName, injection.Anchor, code);
