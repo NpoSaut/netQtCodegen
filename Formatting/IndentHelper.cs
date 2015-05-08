@@ -17,7 +17,7 @@ namespace Codegen.Formatting
         public static string TrimIndents(this string str)
         {
             string[] lines = str.Split('\n');
-            int indent = lines.Min(line => line.MeasureIndent());
+            int indent = lines.Where(line => !string.IsNullOrWhiteSpace(line)).Min(line => line.MeasureIndent());
             string res = string.Join("\n", lines.Select(line => line.Substring(indent)));
             return res;
         }
