@@ -26,7 +26,7 @@ namespace Codegen.Processing
         public void ExecuteAction(string ActionName, string FileName, ICollection<GenerationItem> Items)
         {
             GenerationAction action = _actions[ActionName];
-            foreach (InjectionTemplate injection in action.Injections)
+            foreach (ProjectEntities.Actions.Injection injection in action.Injections)
             {
                 IEnumerable<GenerationItem> filteredItems = Items;
                 if (!string.IsNullOrWhiteSpace(injection.InjectionTargetFilter))
@@ -34,7 +34,7 @@ namespace Codegen.Processing
 
                 foreach (GenerationItem item in filteredItems)
                 {
-                    string code = _templateProcessor.ProcessInjectionTemplate(new GenerationArguments(item, injection.Template, injection.InternalTemplates));
+                    string code = _templateProcessor.ProcessInjectionTemplate(new GenerationArguments(item, injection.Template, action.Templates));
                     _injectionsManager.Inject(FileName, injection.Anchor, code);
                 }
             }

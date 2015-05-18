@@ -35,27 +35,35 @@ namespace Codegen.ProjectLoaders
                                     LoadItems(XGenerationTask.Element("SourceItems"))))
                         .ToList(),
                 document.Root.Element("GenerationActions").Elements()
-                        .Select(XAction =>
-                                new GenerationAction(XAction.Name.LocalName,
-                                                     XAction.Elements("InjectionTemplate")
-                                                            .Select(XTemplate =>
-                                                                    new InjectionTemplate((string)XTemplate.Attribute("anchor"),
-                                                                                          XTemplate.Nodes().OfType<XText>().First().Value.TrimEnd().Trim('\n').TrimIndents(),
-                                                                                          XTemplate.Elements("Template").ToDictionary(
-                                                                                              XInternalTemplate => XInternalTemplate.Attribute("name").Value,
-                                                                                              XInternalTemplate => XInternalTemplate.Value.TrimEnd().Trim('\n').TrimIndents()),
-                                                                                          (string)XTemplate.Attribute("filter")))
-                                                            .ToList()))
+                        .Select(LoadGenerationAction)
                         .ToList()
                 );
             // ReSharper restore PossibleNullReferenceException
+        }
+
+        private static GenerationAction LoadGenerationAction(XElement XAction)
+        {
+            Dictionary<string, string> templates = XAction.Elements("Template").ToDictionary(
+                XInternalTemplate => XInternalTemplate.Attribute("name").Value,
+                XInternalTemplate => XInternalTemplate.Value.TrimEnd().Trim('\n').TrimIndents());
+
+            IList<ProjectEntities.Actions.Injection> injections = XAction.Elements("Injection").Select(
+                XTemplate => new ProjectEntities.Actions.Injection((string)XTemplate.Attribute("anchor"),
+                                                   XTemplate.Nodes().OfType<XText>().Any()
+                                                       ? XTemplate.Nodes().OfType<XText>().First().Value.Trim('\n').TrimIndents()
+                                                       : templates[XTemplate.Attribute("template").Value],
+                                                   (string)XTemplate.Attribute("filter")))
+                                                         .ToList();
+
+            return new GenerationAction(XAction.Name.LocalName, injections, templates);
         }
 
         private static List<GenerationItem> LoadItems(XElement XItemsContainer)
         {
             return XItemsContainer.Elements()
                                   .Select(XItem =>
-                                          new GenerationItem(XItem.Name.LocalName, XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value), LoadItems(XItem)))
+                                          new GenerationItem(XItem.Name.LocalName, XItem.Attributes().ToDictionary(Xa => Xa.Name.LocalName, Xa => Xa.Value),
+                                                             LoadItems(XItem)))
                                   .ToList();
         }
     }

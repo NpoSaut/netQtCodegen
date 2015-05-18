@@ -86,7 +86,7 @@
     <Compile Include="ProjectEntities\Tasking\GenerationActionCalling.cs" />
     <Compile Include="ProjectEntities\Tasking\GenerationItem.cs" />
     <Compile Include="ProjectEntities\Tasking\GenerationTask.cs" />
-    <Compile Include="ProjectEntities\Actions\InjectionTemplate.cs" />
+    <Compile Include="ProjectEntities\Actions\Injection.cs" />
     <Compile Include="ProjectLoaders\IProjectLoader.cs" />
     <Compile Include="ProjectLoaders\XmlProjectLoader.cs" />
     <Compile Include="Properties\Annotations.cs" />

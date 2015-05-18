@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace Codegen.ProjectEntities.Actions
+﻿namespace Codegen.ProjectEntities.Actions
 {
     /// <summary>Шаблон вставки</summary>
     /// <remarks>Шаблон того, что будет вставляться в файл в некотором действии по кодогенерации</remarks>
-    public class InjectionTemplate
+    public class Injection
     {
-        public InjectionTemplate(string Anchor, string Template, IDictionary<string, string> InternalTemplates, string InjectionTargetFilter)
+        public Injection(string Anchor, string Template, string InjectionTargetFilter)
         {
             this.InjectionTargetFilter = InjectionTargetFilter;
-            this.InternalTemplates = InternalTemplates;
             this.Anchor = Anchor;
             this.Template = Template;
         }
@@ -19,9 +16,6 @@ namespace Codegen.ProjectEntities.Actions
 
         /// <summary>Шаблон инжекции</summary>
         public string Template { get; private set; }
-
-        /// <summary>Шаблоны для внутренних инъекций</summary>
-        public IDictionary<string, string> InternalTemplates { get; private set; }
 
         /// <summary>Фильтр названий элементов, для которых нужно выполнять инъекции</summary>
         public string InjectionTargetFilter { get; private set; }
